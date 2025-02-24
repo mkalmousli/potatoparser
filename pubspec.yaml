@@ -10,8 +10,6 @@ environment:
 dependencies:
   # path: ^1.8.0
 
-  commons:
-    path: ../commons
 
   freezed_annotation: 
 
@@ -21,3 +19,5 @@ dev_dependencies:
 
   build_runner: 
   freezed:
+
+  path:

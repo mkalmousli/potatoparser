@@ -1,5 +1,39 @@
 import 'dart:io';
-import 'package:commons/commons.dart';
+
+import 'package:path/path.dart';
+
+extension on String {
+  Directory get dir => Directory(this);
+  File get file => File(this);
+}
+
+extension on Directory {
+  File file(String path) => join(this.path, path).file;
+  Directory dir(String path) => join(this.path, path).dir;
+}
+
+extension on FileSystemEntity {
+  String get name => basename(path);
+}
+
+extension on IOSink {
+  void w(String s) => write(s);
+  void nl() => w("\n");
+  void l(String s) {
+    w(s);
+    nl();
+  }
+
+  void i([int level = 1]) => w('\t' * level);
+}
+
+extension on int {
+  Iterable<int> iter({int start = 0}) sync* {
+    for (int i = start; i < this + start; i++) {
+      yield i;
+    }
+  }
+}
 
 const startCount = 2;
 const endCount = 15;
